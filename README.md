@@ -88,6 +88,9 @@ Maps IMU magnitude to any Live parameter.
 - **Params**  
   - Slide Up/Down → logarithmic smoothing  
   - Param Range (%) → scales normalized [0–1] to target parameter range  
+  - Set incoming channel ID
+  ![UI](Media/M5_Input_Magnitude.png)
+
 
 #### 2. `M5_Input_Accelerometer_Onset.amxd`
 Maps accelerometer onsets to parameters using step detection ([Oxford Step Counter](https://oxford-step-counter.github.io)).  
@@ -99,6 +102,8 @@ Maps accelerometer onsets to parameters using step detection ([Oxford Step Count
     - Min Trigger Interval (avoid retriggering)  
   - **Envelope**  
     - Curve shape + duration  
+  - Set incoming channel ID
+  ![UI](Media/M5_Input_Accelerometer_Onset.png)
 
 **Example Live Set**  
 - Step/trigger → filter cutoff  
