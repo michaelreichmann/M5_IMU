@@ -1,0 +1,67 @@
+# Compiled object files / libraries
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+
+# Arduino build files
+*.elf
+*.bin
+*.hex
+*.map
+*.eep
+
+# Arduino IDE build directory
+/build/
+*.ino.cpp
+
+# PlatformIO (if used)
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Logs and backups
+*.log
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# VSCode / JetBrains IDEs
+.vscode/
+.idea/
+
+# Python virtualenv (if you add scripts later)
+.venv/
+__pycache__/
+*.pyc
+
+# Max/MSP & PureData
+*.mxo
+*.mxe
+*.mxe64
+*.pd~   # PureData backup files
+
+# Ableton Live
+*.als
+*.asd
+*.adv
+*.adg
+*.agr
+*.alp
+*.als~
+*.tmp
+
+# Ignore any credentials
+*.secret
+*.key
+*.pem
+*.crt
+*.p12
