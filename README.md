@@ -75,10 +75,15 @@ Devices can send IMU data to a Raspberry Pi, which re-broadcasts it across the n
 
 ### Max/MSP `M5_SensorInput.maxpat`
 - Receive IMU + gyroscope for all channels  
-- Example patch: [step detection adaptation](https://oxford-step-counter.github.io)  
+- Step detection based on: [Oxford Step Counter](https://oxford-step-counter.github.io)  
+- Max Version: 9.0.8
+<img src="Media/M5_SensorInput_Max.png" alt="Max Patch" width="400"/>
 
 ### PureData `M5_SensorInput.pd`
 - Receive IMU + gyroscope for one channel (adaptable to all)  
+- needs: iemnet Extenral: version 0.3.0
+- Pd Verison: 0.55.0
+<img src="Media/M5_SensorInput_PD.png" alt="PD Patch" width="400"/>
 
 
 ### Max for Live Devices
@@ -89,7 +94,7 @@ Maps IMU magnitude to any Live parameter.
   - Slide Up/Down → logarithmic smoothing  
   - Param Range (%) → scales normalized [0–1] to target parameter range  
   - Set incoming channel ID
-  ![UI](Media/M5_Input_Magnitude.png)
+  <img src="Media/M5_Input_Magnitude.png" alt="Device UI" width="400"/>
 
 
 #### 2. `M5_Input_Accelerometer_Onset.amxd`
@@ -103,8 +108,9 @@ Maps accelerometer onsets to parameters using step detection ([Oxford Step Count
   - **Envelope**  
     - Curve shape + duration  
   - Set incoming channel ID
-  ![UI](Media/M5_Input_Accelerometer_Onset.png)
+  <img src="Media/M5_Input_Accelerometer_Onset.png" alt="Device UI" width="400"/>
 
 **Example Live Set**  
 - Step/trigger → filter cutoff  
 - Gyro magnitude → distortion/gain  
+- Live Version: 12.2.5
