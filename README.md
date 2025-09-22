@@ -5,7 +5,7 @@ It captures **accelerometer and gyroscope data** in real time and streams it via
 
 ---
 
-## Features
+## M5StickC Plus2 Features
 
 - Streams **accelerometer (ax, ay, az)** and **gyroscope (gx, gy, gz)** data at ~200 Hz  
 - OSC messages sent to IP:PORT (default port: **8000**)  
@@ -35,6 +35,8 @@ Each device streams motion independently, enabling real-time **sonification of m
 ---
 
 ## Setup (Arduino IDE)
+
+- Arduino Code: `M5_Send_IMU.ino`
 
 ### 1. Board Support
 - Add this URL in *Preferences → Additional Board Manager URLs*:  
