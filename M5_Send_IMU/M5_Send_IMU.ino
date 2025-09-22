@@ -145,7 +145,7 @@ void setup()
   //start Wi-Fi
   WiFi.mode(WIFI_STA);
   // CHANGED: keep radio awake for lower latency
-  WiFi.setSleep(false);
+  WiFi.setSleep(true);
   WiFi.setAutoReconnect(true);  // added for robustness
   wifiEnsureConnected();
 
