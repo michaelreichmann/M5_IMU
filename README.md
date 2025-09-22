@@ -1,4 +1,4 @@
-# M5StickC Plus2 – OSC Motion Streaming
+# M5StickC Plus2: OSC Motion Streaming
 
 This project turns the **M5StickC Plus2** microcontroller into a wireless motion sensor.  
 It captures **accelerometer and gyroscope data** in real time and streams it via **OSC over Wi-Fi** to any OSC-capable software (Max/MSP, PureData, etc.).
@@ -15,14 +15,15 @@ It captures **accelerometer and gyroscope data** in real time and streams it via
   ```
 - **Channel IDs**  
   - Changeable via hardware buttons (increment/decrement)  
-  - Commit delay prevents accidental changes  
   - Saved in NVS and restored after reboot  
 - **On-device feedback**  
-  - Display shows ID, Wi-Fi, battery status  
+  - Display shows channel ID, Wi-Fi, battery status  
   - Beeps confirm button presses and commits  
 - **Battery optimizations**  
   - Adjustable brightness  
   - Optional Wi-Fi modem sleep  
+
+  <img src="Media/M5StickCPlus2.png" alt="Sensor" width="400"/>
 
 ---
 
@@ -73,11 +74,21 @@ Devices can send IMU data to a Raspberry Pi, which re-broadcasts it across the n
 
 ## Code Examples
 
-### Max/MSP `M5_SensorInput.maxpat`
-- Receive IMU + gyroscope for all channels  
+### Max/MSP 
+
+#### 1. `M5_SensorInput.maxpat`
+- Receive accelerometer + gyroscope for all channels  
 - Step detection based on: [Oxford Step Counter](https://oxford-step-counter.github.io)  
 - Max Version: 9.0.8
 <img src="Media/M5_SensorInput_Max.png" alt="Max Patch" width="400"/>
+
+#### 2. `M5_SensorInputRecording.maxpat`
+- Records Sensor inputs to 2 channel .WAV files
+- Channel 1 = timestamp (decimal in seconds)  
+- Channel 2 = data input
+- 200 Hz sampling rate
+- Output: 6 files (3 x accel, 3 x gyro)
+<img src="Media/M5_SensorInputRec_Max.png" alt="Max Patch" width="400"/>
 
 ### PureData `M5_SensorInput.pd`
 - Receive IMU + gyroscope for one channel (adaptable to all)  
