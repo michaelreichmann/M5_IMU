@@ -93,7 +93,7 @@ Devices can send IMU data to a Raspberry Pi, which re-broadcasts it across the n
 <img src="Media/M5_SensorInputRec_Max.png" alt="Max Patch" width="400"/>
 
 ### PureData `M5_SensorInput.pd`
-- Receive IMU + gyroscope for one channel (adaptable to all)  
+- Receive accelerometer + gyroscope for one channel (adaptable to all)  
 - needs: iemnet Extenral: version 0.3.0
 - Pd Verison: 0.55.0
 <img src="Media/M5_SensorInput_PD.png" alt="PD Patch" width="400"/>
@@ -102,7 +102,7 @@ Devices can send IMU data to a Raspberry Pi, which re-broadcasts it across the n
 ### Max for Live Devices
 
 #### 1. `M5_Input_Magnitude.amxd`
-Maps IMU magnitude to any Live parameter.  
+Maps accelerometer or gyroscope magnitude to any Live parameter.  
 - **Params**  
   - Slide Up/Down → logarithmic smoothing  
   - Param Range (%) → scales normalized [0–1] to target parameter range  
@@ -110,9 +110,11 @@ Maps IMU magnitude to any Live parameter.
   <img src="Media/M5_Input_Magnitude.png" alt="Device UI" width="400"/>
 
 
-#### 2. `M5_Input_Accelerometer_Onset.amxd`
-Maps accelerometer onsets to parameters using step detection ([Oxford Step Counter](https://oxford-step-counter.github.io)).  
+#### 2. `M5_Input_Onset.amxd`
+Maps accelerometer or gyroscope onsets to parameters using step detection ([Oxford Step Counter](https://oxford-step-counter.github.io)).  
 - **Params**  
+  - **Mode**
+    - Switch between accelerometer and gyroscope input
   - **Mapping**  
     - Param Range (%)  
   - **Detection**  
@@ -121,7 +123,24 @@ Maps accelerometer onsets to parameters using step detection ([Oxford Step Count
   - **Envelope**  
     - Curve shape + duration  
   - Set incoming channel ID
-  <img src="Media/M5_Input_Accelerometer_Onset.png" alt="Device UI" width="400"/>
+  <img src="Media/M5_Input_Onset.png" alt="Device UI" width="400"/>
+
+
+  #### 3. `  M5_Input_Onset_MIDI.amxd`
+Triggers MIDI notes with accelerometer or gyroscope onsets using step detection ([Oxford Step Counter](https://oxford-step-counter.github.io)).  
+- **Params**  
+  - **Mode**
+    - Switch between accelerometer and gyroscope input
+  - **MIDI Out**  
+    - Pitch Range
+    - Velocity Range
+    - Note Duration 
+  - **Detection**  
+    - Trigger Threshold  
+    - Min Trigger Interval (avoid retriggering)  
+  - Set incoming channel ID
+  <img src="Media/M5_Input_Onset_MIDI.png" alt="Device UI" width="400"/>
+
 
 **Example Live Set**  
 - Step/trigger → filter cutoff  
