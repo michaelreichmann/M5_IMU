@@ -146,7 +146,7 @@ void setup()
   WiFi.mode(WIFI_STA);
   // CHANGED: keep radio awake for lower latency
   WiFi.setSleep(true);
-  WiFi.setAutoReconnect(true);  // added for robustness
+  WiFi.setAutoReconnect(false);  // added for robustness
   wifiEnsureConnected();
 
   Udp.begin(LOCAL_PORT);
