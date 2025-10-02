@@ -2,6 +2,7 @@
 
 This project turns the **M5StickC Plus2** microcontroller into a wireless motion sensor.  
 It captures **accelerometer and gyroscope data** in real time and streams it via **OSC over Wi-Fi** to any OSC-capable software (Max/MSP, PureData, etc.).
+Multiple sensors can stream to one (*M5_Send_IMU* - Setup) or multiple (*M5_Send_IMU_Multiple* - Setup) receiving devices.
 
 ---
 
@@ -53,7 +54,20 @@ Install via Arduino Library Manager (or GitHub):
 - [M5GFX](https://github.com/m5stack/M5GFX)  
 - [OSC (CNMAT)](https://github.com/CNMAT/OSC)  
 
-### 3. Wi-Fi & OSC Config
+### 3. Setup Versions
+
+- **`M5_Send_IMU.ino`**
+- Arduino IDE Code
+- Uses Static IP 192.168.1.50 to stream to a single receiving device
+- *Note: Change WIFI from DHCP to Static*
+
+- **`M5_Send_IMU_Multiple.ino`**
+- Arduino IDE Code
+- Devices send IMU data to a Raspberry Pi, which re-broadcasts it across the network to multiple receivers.
+- Includes Instructions (`Pi_Setup_Instructions.md`) to setup the Pi fan-out: CAUTION - made with ChatGPT.
+- *Note: WIFI can stay on DHCP*
+
+### 4. Wi-Fi & OSC Config
 In the source code:  
 ```cpp
 #define WIFI_SSID     "YourSSID"
@@ -63,13 +77,12 @@ In the source code:
 #define OUT_PORT 9000             // Port of OSC receiver
 ```
 
-*Multi-user setup:*  
-Devices can send IMU data to a Raspberry Pi, which re-broadcasts it across the network to multiple receivers.
-
 ---
 
 ## Requirements
 - **Hardware**: M5StickC Plus2  
+- **Router**
+- **Raspberry Pi**: for Fan-Out Version
 - **Software**: Arduino IDE with ESP32/M5Stack support  
 
 ---

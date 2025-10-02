@@ -11,18 +11,20 @@ static const char* NVS_NS  = "m5cfg";
 static const char* KEY_ID  = "channelId";
 
 unsigned long lastIdChangeMs = 0;
-const unsigned long SAVE_DELAY_MS = 500; 
+const unsigned long SAVE_DELAY_MS = 500;   // coalesce rapid presses
 bool idDirty = false;
 
-//WIFI config: change to your WIFI info
+//WIFI config: change to your WIFI settings
 const char* WIFI_SSID     = "IMU_In";
 const char* WIFI_PASSWORD = "sonification";
-WiFiUDP Udp;
 
-//static IP
+//find IP: terminal: ifconfig en0
+WiFiUDP Udp;
+//Pi static IP 
 const IPAddress OUT_IP(192, 168, 1, 50);
 
-const uint16_t OUT_PORT = 8000;           
+//send to the Pi's fan-in port (9000), not 8000
+const uint16_t OUT_PORT = 9000;           
 const uint16_t LOCAL_PORT = 9000;       
 
 //device
@@ -144,7 +146,7 @@ void setup()
   //start Wi-Fi
   WiFi.mode(WIFI_STA);
 
-  //set sleep for longer battery life
+  //keep radio awake for lower latency
   WiFi.setSleep(true);
   WiFi.setAutoReconnect(false);
   wifiEnsureConnected();
@@ -243,7 +245,7 @@ void loop()
       msg.add(ax); msg.add(ay); msg.add(az);
       msg.add(gx); msg.add(gy); msg.add(gz);
 
-      Udp.beginPacket(OUT_IP, OUT_PORT);
+      Udp.beginPacket(OUT_IP, OUT_PORT);  // CHANGED: OUT_PORT = 9000
       msg.send(Udp);
       Udp.endPacket();
       msg.empty();

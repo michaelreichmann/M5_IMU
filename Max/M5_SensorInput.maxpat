@@ -14,12 +14,22 @@
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 760.0, 407.0, 192.0, 20.0 ],
+					"text" : "Static IP used by M5 192.168.1.50"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-11",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 52.0, 895.0, 103.0, 20.0 ],
-					"presentation_linecount" : 2,
 					"text" : "rotation from gyro"
 				}
 
@@ -695,7 +705,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 176.0, 215.0, 50.0, 89.0 ],
-					"text" : "-0.191989 -0.107552 1.256896"
+					"text" : "-0.418775 0.467812 0.932207"
 				}
 
 			}
@@ -708,7 +718,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 97.0, 215.0, 50.0, 89.0 ],
-					"text" : "-0.990364 -0.036774 0.061136"
+					"text" : "-0.437574 0.360146 0.899492"
 				}
 
 			}
@@ -720,7 +730,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 75.0, 174.0, 58.0, 33.0 ],
-					"text" : "193624 Hz"
+					"text" : "34315 Hz"
 				}
 
 			}
@@ -733,7 +743,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 18.0, 215.0, 50.0, 89.0 ],
-					"text" : "-0.908127 -0.382435 0.201812"
+					"text" : "-0.911207 -0.003379 0.416094"
 				}
 
 			}
